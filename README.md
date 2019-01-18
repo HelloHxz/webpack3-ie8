@@ -30,7 +30,5 @@ exports.default = function (instance, Constructor) {
 > npm run build
 
 
-### reqiure.ensure 和 import() 会在ie8编写代码时候会报错 但是在打包后不会
-
 
 

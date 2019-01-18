@@ -28,18 +28,6 @@ module.exports = function(env) {
   }
   if (isBuild) {
     rmdirSync('./dist');
-    if(useIE8) {
-      plugins.push(new UglifyJSPlugin({
-        uglifyOptions: {
-          ie8: true,
-          output: {
-            comments: false,
-            beautify: false
-          },
-          warnings: false
-        }
-      }));
-    }
   } else {
     const openurl = env.openurl || '';
     if (openurl.length > 0) {
@@ -49,6 +37,19 @@ module.exports = function(env) {
     }
   }
   plugins = plugins.concat(entryAndHtmlPlugin.htmlplugins);
+
+  if(useIE8) {
+    plugins.push(new UglifyJSPlugin({
+      uglifyOptions: {
+        ie8: true,
+        output: {
+          comments: false,
+          beautify: false
+        },
+        warnings: false
+      }
+    }));
+  }
 
   return {
     entry: entry,
@@ -63,7 +64,8 @@ module.exports = function(env) {
       inline: !useIE8
     },
     plugins: plugins,
-    devtool: isBuild ? 'cheap-module-source-map': 'cheap-module-eval-source-map',
+    // cheap-module-eval-source-map 在ie8下报错
+    devtool: isBuild ? 'cheap-module-source-map': 'cheap-module-source-map',
     module: {
       rules: [{
         test: /\.js$/,
