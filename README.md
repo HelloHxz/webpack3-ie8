@@ -30,16 +30,7 @@ exports.default = function (instance, Constructor) {
 > npm run build
 
 
-### reqiure.ensure 会在ie8编写代码时候会报错 但是在打包后不会
+### reqiure.ensure 和 import() 会在ie8编写代码时候会报错 但是在打包后不会
 
 
 
-
-## todo
-
-> 实现import() 但是现在编译报错
-
-```
-Module build failed: Error: Parse Error: Line 20: Illegal import declaration
-
-```

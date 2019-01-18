@@ -128,12 +128,8 @@ module.exports = function(env) {
            loader: 'expose-loader',
            options: '$'
         }]
-      },
-      {
-        test: /\.js$/,
-        enforce: "post",
-        loader: "es3ify-loader"
-      }]
+      }
+    ]
     }
   };
 };

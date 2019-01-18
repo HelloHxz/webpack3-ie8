@@ -1,4 +1,4 @@
-export default class Normal {
+class Normal {
     constructor() {
         this.initLayout();
     }
@@ -9,3 +9,5 @@ export default class Normal {
         document.body.appendChild(mes);
     }
 }
+
+export default Normal;
