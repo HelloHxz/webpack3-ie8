@@ -64,7 +64,8 @@ module.exports = function(env) {
       inline: !useIE8
     },
     plugins: plugins,
-    // cheap-module-eval-source-map 在ie8下报错
+    // cheap-module-eval-source-map 在调试ie8时候报错  如果要chrome断点调试换成 cheap-module-eval-source-map
+    // devtool: isBuild ? 'cheap-module-source-map': 'cheap-module-eval-source-map',
     devtool: isBuild ? 'cheap-module-source-map': 'cheap-module-source-map',
     module: {
       rules: [{
